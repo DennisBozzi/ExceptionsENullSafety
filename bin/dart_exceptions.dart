@@ -33,7 +33,11 @@ void main() {
 void functionOne() {
   print("Started F01");
 
-  functionTwo();
+  try {
+    functionTwo();
+  } on FormatException catch(FormatException){
+    print('O valor não pôde ser convertido. ${FormatException}');
+  }
 
   print("Finished F01");
 }
@@ -43,6 +47,7 @@ void functionTwo() {
 
   for (int i = 0; i <= 5; i++) {
     print(i);
+    double amount = double.parse("Not a number");
   }
 
   print("Finished F02");
